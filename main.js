@@ -1,7 +1,7 @@
 // Initialize Phaser, and creates a 400x490px game
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game_div');
 var game_state = {};
-var dappContactAddress = "n1mjdJszqdb9fWWJzB6vw3tPqhy6X3XEs16";
+var dappContactAddress = "n1wEu65pAQSj27eKjNnF5TvCDMJcJSaQeH2";
 var nebulas = require("nebulas"), Account = Account, neb = new nebulas.Neb();
 neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"))
 
