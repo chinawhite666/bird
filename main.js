@@ -1,7 +1,14 @@
 // Initialize Phaser, and creates a 400x490px game
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game_div');
 var game_state = {};
+var dappContactAddress = "n1mjdJszqdb9fWWJzB6vw3tPqhy6X3XEs16";
+var nebulas = require("nebulas"), Account = Account, neb = new nebulas.Neb();
+neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"))
 
+
+var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
+var nebPay = new NebPay();
+var serialNumber;
 // Creates a new 'main' state that will contain the game
 game_state.main = function() { };  
 game_state.main.prototype = {
@@ -15,7 +22,8 @@ game_state.main.prototype = {
         this.game.load.image('bird', 'assets/bird.png');  
 
         // Load the pipe sprite
-        this.game.load.image('pipe', 'assets/pipe.png');      
+        this.game.load.image('pipe', 'assets/pipe.png'); 
+
     },
 
     // Fuction called after 'preload' to setup the game 
@@ -61,6 +69,17 @@ game_state.main.prototype = {
 
     // Restart the game
     restart_game: function() {
+        var name=window.prompt("游戏结束","留下你的姓名");
+        var to = dappContactAddress;
+	    var value = "0";
+	    var callFunction = "save";
+	    var callArgs = "[\"" +name + "\",\"" +this.score + "\"]";
+	    
+	    serialNumber = nebPay.call(to, value, callFunction, callArgs, {    //使用nebpay的call接口去调用合约,
+		listener: function (resp) {
+			console.log("thecallback is " + resp)
+		}
+	    });	
         // Remove the timer
         this.game.time.events.remove(this.timer);
 
