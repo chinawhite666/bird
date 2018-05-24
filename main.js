@@ -81,10 +81,10 @@ game_state.main.prototype = {
             if(typeof resp == "string"){
                 console.log("reject! cancel");
                 alert("已取消上传,那再来一次吧")
-                window.location.href="index.html";
+                window.location.assign("https://chinawhite666.github.io/bird/")
             }else{
                 alert("上传成功");
-                window.location.href="index.html";
+                window.location.assign("https://chinawhite666.github.io/bird/")
                 
             }
 		}
