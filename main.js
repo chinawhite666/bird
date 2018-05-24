@@ -88,10 +88,10 @@ game_state.main.prototype = {
 		}
 	    });	
         // Remove the timer
-        this.game.time.events.remove(this.timer);
+        //this.game.time.events.remove(this.timer);
 
         // Start the 'main' state, which restarts the game
-        this.game.state.start('main');
+        //this.game.state.start('main');
     },
 
     // Add a pipe on the screen
