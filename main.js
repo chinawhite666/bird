@@ -5,7 +5,7 @@ var dappContactAddress = "n1wEu65pAQSj27eKjNnF5TvCDMJcJSaQeH2";
 var nebulas = require("nebulas"), Account = Account, neb = new nebulas.Neb();
 neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"))
 
-
+var aaa=true;
 var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
 var nebPay = new NebPay();
 var serialNumber;
@@ -69,6 +69,7 @@ game_state.main.prototype = {
 
     // Restart the game
     restart_game: function() {
+        if(aaa){
         var name=window.prompt("游戏结束","留下你的姓名");
         var to = dappContactAddress;
 	    var value = "0";
@@ -81,14 +82,16 @@ game_state.main.prototype = {
             if(typeof resp == "string"){
                 console.log("reject! cancel");
                 alert("已取消上传,那再来一次吧")
-                window.location.assign("https://chinawhite666.github.io/bird/")
+               
             }else{
                 alert("上传成功");
-                window.location.assign("https://chinawhite666.github.io/bird/")
+                
                 
             }
 		}
-	    });	
+        });	
+        aaa=false;
+    }
         // Remove the timer
         //this.game.time.events.remove(this.timer);
 
@@ -126,4 +129,4 @@ game_state.main.prototype = {
 
 // Add and start the 'main' state to start the game
 game.state.add('main', game_state.main); 
-var begin= game.state.start('main'); 
+game.state.start('main'); 
