@@ -81,8 +81,10 @@ game_state.main.prototype = {
             if(typeof resp == "string"){
                 console.log("reject! cancel");
                 alert("已取消上传,那再来一次吧")
+                window.location.href="index.html";
             }else{
                 alert("上传成功");
+                window.location.href="index.html";
                 
             }
 		}
@@ -123,5 +125,5 @@ game_state.main.prototype = {
 };
 
 // Add and start the 'main' state to start the game
-game.state.add('main', game_state.main);  
-game.state.start('main'); 
+game.state.add('main', game_state.main); 
+var begin= game.state.start('main'); 
