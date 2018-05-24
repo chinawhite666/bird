@@ -77,7 +77,14 @@ game_state.main.prototype = {
 	    
 	    serialNumber = nebPay.call(to, value, callFunction, callArgs, {    //使用nebpay的call接口去调用合约,
 		listener: function (resp) {
-			console.log("thecallback is " + resp)
+            console.log("thecallback is " + resp);
+            if(typeof resp == "string"){
+                console.log("reject! cancel");
+                alert("已取消上传")
+            }else{
+                alert("正在上传");
+                
+            }
 		}
 	    });	
         // Remove the timer
