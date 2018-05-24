@@ -80,7 +80,7 @@ game_state.main.prototype = {
             console.log("thecallback is " + resp);
             if(typeof resp == "string"){
                 console.log("reject! cancel");
-                alert("已取消上传")
+                alert("已取消上传,那再来一次吧")
             }else{
                 alert("正在上传");
                 
