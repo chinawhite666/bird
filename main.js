@@ -4,7 +4,7 @@ var game_state = {};
 var dappContactAddress = "n1wEu65pAQSj27eKjNnF5TvCDMJcJSaQeH2";
 var nebulas = require("nebulas"), Account = Account, neb = new nebulas.Neb();
 neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"))
-
+var name=window.prompt("游戏即将开始","请留下你的姓名");
 var aaa=true;
 var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
 var nebPay = new NebPay();
@@ -70,7 +70,8 @@ game_state.main.prototype = {
     // Restart the game
     restart_game: function() {
         if(aaa){
-        var name=window.prompt("游戏结束","留下你的姓名");
+            alert("游戏结束");
+       
         var to = dappContactAddress;
 	    var value = "0";
 	    var callFunction = "save";
