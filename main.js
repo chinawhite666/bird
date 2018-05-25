@@ -90,8 +90,11 @@ game_state.main.prototype = {
             }
 		}
         });	
+        this.game.state.start('main');
         aaa=false;
     }
+
+    this.game.time.events.remove(this.timer);
         // Remove the timer
         //this.game.time.events.remove(this.timer);
 
