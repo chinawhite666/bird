@@ -93,6 +93,7 @@ game_state.main.prototype = {
         });	
         this.game.state.start('main');
         aaa=false;
+        alert("点击左上角'重新开始'再来一局！");
     }
 
     this.game.time.events.remove(this.timer);
