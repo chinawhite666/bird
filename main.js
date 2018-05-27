@@ -56,12 +56,13 @@ game_state.main.prototype = {
 
     // This function is called 60 times per second
     update: function() {
+        if(aaa){
         // If the bird is out of the world (too high or too low), call the 'restart_game' function
         if (this.bird.inWorld == false)
             this.restart_game(); 
 
         // If the bird overlap any pipes, call 'restart_game'
-        this.game.physics.overlap(this.bird, this.pipes, this.restart_game, null, this);      
+        this.game.physics.overlap(this.bird, this.pipes, this.restart_game, null, this);     } 
     },
 
     // Make the bird jump 
@@ -110,6 +111,7 @@ game_state.main.prototype = {
 
     // Add a pipe on the screen
     add_one_pipe: function(x, y) {
+        if(aaa){
         // Get the first dead pipe of our group
         var pipe = this.pipes.getFirstDead();
 
@@ -121,10 +123,12 @@ game_state.main.prototype = {
                
         // Kill the pipe when it's no longer visible 
         pipe.outOfBoundsKill = true;
+        }
     },
 
     // Add a row of 6 pipes with a hole somewhere in the middle
     add_row_of_pipes: function() {
+        if(aaa){
         var hole = Math.floor(Math.random()*5)+1;
         
         for (var i = 0; i < 8; i++)
@@ -133,6 +137,7 @@ game_state.main.prototype = {
     
         this.score += 1;
         this.label_score.content = this.score;  
+        }
     },
 };
 
