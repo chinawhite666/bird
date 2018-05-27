@@ -28,6 +28,8 @@ game_state.main.prototype = {
 
     // Fuction called after 'preload' to setup the game 
     create: function() { 
+
+        if(aaa){
         // Display the bird on the screen
         this.bird = this.game.add.sprite(100, 245, 'bird');
         
@@ -49,6 +51,7 @@ game_state.main.prototype = {
         this.score = 0;
         var style = { font: "30px Arial", fill: "#ffffff" };
         this.label_score = this.game.add.text(20, 20, "0", style);  
+        }
     },
 
     // This function is called 60 times per second
@@ -94,7 +97,7 @@ game_state.main.prototype = {
         this.game.state.start('main');
         aaa=false;
         alert("点击左上角'重新开始'再来一局！");
-        return;
+        
     }
 
     this.game.time.events.remove(this.timer);
